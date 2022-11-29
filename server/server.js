@@ -1,14 +1,14 @@
 const express = require('express');
-const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
-const db = require('./config/connection');
-const routes = require('./routes');
+const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-const { typeDefs, resolvers } = require('./schemas');
 
-const app = express();
+const { typeDefs, resolvers } = require('./schemas');
+const db = require('./config/connection');
+
 const PORT = process.env.PORT || 3001;
-const server = new ApolloServer ({
+const app = express();
+const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
@@ -22,11 +22,13 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.use(routes);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
-  server.applyMiddleware({app});
+  server.applyMiddleware({ app });
 
   db.once('open', () => {
   app.listen(PORT, () => {
