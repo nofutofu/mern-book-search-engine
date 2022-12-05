@@ -1,14 +1,16 @@
-<h1 align="center">MERN Book Search Engine</h1>
+## MERN Book Search Engine
 
-<p align="center">Book search engine using apollo server & graphql<project-description></p>
+## Description
+
+Book search engine using apollo server & graphql
 
 ## Links
 
-- [Live](<> "Live view")
+- [Live]( 'Live view')
 
 ## Screenshots
 
-![Book Search](/assets/screenshots/1.png "Book Search")
+![Book Search](/assets/screenshots/1.png 'Book Search')
 
 ## Built With
 
@@ -24,4 +26,4 @@
 **Aaron Weis**
 
 - [Profile](https://github.com/nofutofu)
-- [Email](mailto:aaronrweis@gmail.com?subject=Hi "Hi!")
+- [Email](mailto:aaronrweis@gmail.com?subject=Hi 'Hi!')
