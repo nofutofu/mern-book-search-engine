@@ -8,9 +8,7 @@
 
 ## Screenshots
 
-![](/assets/screenshots/1.png "")
-
-![](/assets/screenshots/2.png "")
+![Book Search](/assets/screenshots/1.png "Book Search")
 
 ## Built With
 

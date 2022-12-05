@@ -30,19 +30,19 @@ const resolvers = {
         return { token, user };
     },
 
-    addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password });
+    addUser: async (parent, args) => {
+        const user = await User.create(args);
         const token = signToken(user);
         return { token, user };
     },
 
-    saveBook: async (parent, { authors, description, title, bookId, image, link }, context) => {
+    saveBook: async (parent, { bookData }, context) => {
         if (context.user) {
             return User.findOneAndUpdate(
                 { _id: context.user._id },
                 {
                     $addToSet: {
-                        savedBooks: { authors, description, title, bookId, image, link },
+                        savedBooks: bookData
                     },
                 },
                 { new: true }
